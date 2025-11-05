@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akesi's Kreation | Where Color Speaks, Art Heals</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --primary: #8B5FBF;
+            --secondary: #D4A5E6;
+            --accent: #FF6B6B;
+            --light: #F8F9FA;
+            --dark: #343A40;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+        
+        .color-therapy-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .handcrafted-gradient {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .african-soul-gradient {
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+        
+        .transition-transform {
+            transition: transform 0.3s ease;
+        }
+        
+        .transition-transform:hover {
+            transform: translateY(-5px);
+        }
+        
+        .page-section {
+            display: none;
+        }
+        
+        .active-section {
+            display: block;
+        }
+        
+        .active-nav {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .product-image {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .cart-item {
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+        }
+        
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-purple-700" onclick="showSection('home')">Akesis Kreation</a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="text-gray-800 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#" class="nav-link text-gray-800 hover:text-purple-600 font-medium active-nav" onclick="showSection('home')">Home</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-purple-600 font-medium" onclick="showSection('about')">About</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-purple-600 font-medium" onclick="showSection('products')">Products</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-purple-600 font-medium" onclick="showSection('journey')">Our Journey</a>
+                    <a href="#" class="nav-link text-gray-800 hover:text-purple-600 font-medium" onclick="showSection('contact')">Contact</a>
+                    <a href="#" class="text-gray-800 hover:text-purple-600 font-medium" onclick="showSection('cart')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="bg-purple-600 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center -ml-1 -mt-2">0</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden py-4 border-t">
+                <a href="#" class="block py-2 text-gray-800 hover:text-purple-600 nav-link active-nav" onclick="showSection('home')">Home</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-purple-600 nav-link" onclick="showSection('about')">About</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-purple-600 nav-link" onclick="showSection('products')">Products</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-purple-600 nav-link" onclick="showSection('journey')">Our Journey</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-purple-600 nav-link" onclick="showSection('contact')">Contact</a>
+                <a href="#" class="block py-2 text-gray-800 hover:text-purple-600" onclick="showSection('cart')">
+                    <i class="fas fa-shopping-cart mr-2"></i>Shopping Cart
+                    <span id="mobile-cart-count" class="bg-purple-600 text-white rounded-full text-xs w-5 h-5 inline-flex items-center justify-center ml-1">0</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Page -->
+    <section id="home" class="page-section active-section">
+        <!-- Hero Section -->
+        <div class="hero-gradient py-20 md:py-32">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gray-800">Where Color Speaks, <span class="text-purple-700">Art Heals</span></h1>
+                        <p class="text-lg md:text-xl mb-8 text-gray-700">Handcrafted crochet fashion, wearable art, and mixed media pieces that celebrate emotion, color, and individuality.</p>
+                        <div class="flex space-x-4">
+                            <a href="#" class="bg-purple-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-800 transition-colors" onclick="showSection('products')">Shop Now</a>
+                            <a href="#" class="border-2 border-purple-700 text-purple-700 px-6 py-3 rounded-lg font-medium hover:bg-purple-700 hover:text-white transition-colors" onclick="showSection('about')">Our Story</a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-full overflow-hidden shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-pink-500 opacity-80"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-palette text-white text-8xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- What Makes Us Unique Section -->
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">What Makes Us Unique</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Art Meets Emotion -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg transition-transform">
+                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-heart text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Art Meets Emotion</h3>
+                        <p class="text-gray-600">Every piece is crafted with intention—merging art, color, and therapy to inspire emotional balance and self-expression.</p>
+                    </div>
+                    
+                    <!-- Signature Use of Color -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg transition-transform">
+                        <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-palette text-pink-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Signature Use of Color</h3>
+                        <p class="text-gray-600">We treat color as more than visual beauty. Each shade is chosen for its emotional effect, creating designs that calm, uplift, and energize.</p>
+                    </div>
+                    
+                    <!-- Handcrafted Excellence -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg transition-transform">
+                        <div class="w-16 h-16 rounded-full bg-blue-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-hands text-blue-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Handcrafted Excellence</h3>
+                        <p class="text-gray-600">Our creations are meticulously made by hand, ensuring precision, texture, and timeless appeal in every detail.</p>
+                    </div>
+                    
+                    <!-- Wearable Art & Beyond -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg transition-transform">
+                        <div class="w-16 h-16 rounded-full bg-yellow-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-tshirt text-yellow-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Wearable Art & Beyond</h3>
+                        <p class="text-gray-600">From crochet earrings and fascinators to mixed media paintings and wall art, our work transforms artistry into luxury.</p>
+                    </div>
+                    
+                    <!-- Global Aesthetic with African Soul -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg transition-transform">
+                        <div class="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-globe-africa text-green-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Global Aesthetic with African Soul</h3>
+                        <p class="text-gray-600">Rooted in African creativity yet inspired by global art and fashion, we bridge cultures through design and emotion.</p>
+                    </div>
+                    
+                    <!-- Uniqueness as Identity -->
+                    <div class="bg-white p-6 rounded-xl shadow-lg transition-transform">
+                        <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center mb-4">
+                            <i class="fas fa-user text-indigo-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">Uniqueness as Identity</h3>
+                        <p class="text-gray-600">Each piece celebrates individuality—made to remind you that confidence and beauty begin with being authentically yourself.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Featured Products -->
+        <div class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Featured Creations</h2>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Discover our handpicked selection of unique pieces that embody the essence of Akesi's Kreation.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform">
+                        <div class="product-image bg-gradient-to-r from-purple-400 to-pink-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Sunset Dreams Earrings</h3>
+                            <p class="text-gray-600 mb-4">Vibrant crochet earrings that capture the warmth of an African sunset.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$45.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="1" data-name="Sunset Dreams Earrings" data-price="45.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform">
+                        <div class="product-image bg-gradient-to-r from-blue-400 to-teal-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ocean Whisper Fascinator</h3>
+                            <p class="text-gray-600 mb-4">Elegant headpiece with calming blue tones inspired by the sea.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$68.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="2" data-name="Ocean Whisper Fascinator" data-price="68.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform">
+                        <div class="product-image bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Golden Harmony Wall Art</h3>
+                            <p class="text-gray-600 mb-4">Mixed media artwork that brings warmth and energy to any space.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$120.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="3" data-name="Golden Harmony Wall Art" data-price="120.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-12">
+                    <a href="#" class="bg-white border-2 border-purple-700 text-purple-700 px-6 py-3 rounded-lg font-medium hover:bg-purple-700 hover:text-white transition-colors" onclick="showSection('products')">View All Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Page -->
+    <section id="about" class="page-section">
+        <div class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-16">About Akesi's Kreation</h1>
+                
+                <div class="flex flex-col md:flex-row items-center mb-20">
+                    <div class="md:w-1/2 mb-10 md:mb-0">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Our Origin Story</h2>
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <p class="text-gray-600 mb-4">Akesi's Kreation began from a lifelong love of color, texture, and handmade art. Founded by multidisciplinary artist, occupational health and safety officer and chromotherapist Samuella Bennie Coffie, the brand celebrates the beauty of creativity through crochet fashion, wearable art, and mixed media paintings.</p>
+                            <p class="text-gray-600 mb-4">Samuella's journey started at just six years old, when she first discovered the calming rhythm of crochet and beading. Over time, her craft evolved into a way of expressing emotion and exploring the power of color to influence mood and well-being.</p>
+                            <p class="text-gray-600">Every piece—from bold crochet earrings to fascinators, brooches, and wall art—reflects her belief that color is more than visual; it's therapeutic.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-64 h-80 md:w-80 md:h-96 rounded-xl overflow-hidden shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-b from-purple-500 to-pink-500 opacity-90"></div>
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <i class="fas fa-user-tie text-white text-8xl"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col md:flex-row-reverse items-center">
+                    <div class="md:w-1/2 mb-10 md:mb-0 md:pl-10">
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6">Meet the Maker</h2>
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <p class="text-gray-600 mb-4">Samuella Bennie Coffie is the creative mind behind Akesi's Kreation—a multidisciplinary artist, chromotherapist, and lifelong lover of color.</p>
+                            <p class="text-gray-600 mb-4">Her journey with art began at age six, when she first picked up a crochet hook and discovered the peace that comes from creating with her hands.</p>
+                            <p class="text-gray-600">Today, she combines her artistic background with her knowledge of chromotherapy to design pieces that do more than beautify—they uplift, calm, and inspire.</p>
+                            <p class="text-gray-600 mt-4">Samuella's work moves fluidly between crochet fashion, wearable art, and mixed media paintings. Through Akesi's Kreation, she invites people to experience color not just as decoration, but as a form of therapy and self-expression.</p>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 flex justify-center">
+                        <div class="relative w-64 h-80 md:w-80 md:h-96 rounded-xl overflow-hidden shadow-2xl">
+                            <div class="absolute inset-0 bg-gradient-to-b from-blue-500 to-teal-500 opacity-90"></div>
+                            <div class="absolute inset-0 flex flex-col items-center justify-center p-6 text-white text-center">
+                                <i class="fas fa-palette text-6xl mb-4"></i>
+                                <h3 class="text-2xl font-bold mb-2">Samuella Bennie Coffie</h3>
+                                <p class="text-lg">Founder & Creative Director</p>
+                                <p class="mt-4">Multidisciplinary Artist & Chromotherapist</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Why Choose Us -->
+                <div class="mt-20">
+                    <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Why Choose Akesi's Kreation</h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Handcrafted with Intention -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-hands text-purple-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Handcrafted with Intention</h3>
+                            </div>
+                            <p class="text-gray-600">Every piece is made by hand, ensuring quality, detail, and uniqueness.</p>
+                        </div>
+                        
+                        <!-- Color as Therapy -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-palette text-pink-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Color as Therapy</h3>
+                            </div>
+                            <p class="text-gray-600">Our designs are created to inspire, uplift, and balance emotions through thoughtful use of color.</p>
+                        </div>
+                        
+                        <!-- Wearable Art -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-tshirt text-blue-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Wearable Art</h3>
+                            </div>
+                            <p class="text-gray-600">From crochet fashion to fascinators and accessories, our creations are designed to be experienced, not just admired.</p>
+                        </div>
+                        
+                        <!-- Creative Expertise -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-yellow-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-user-graduate text-yellow-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Creative Expertise</h3>
+                            </div>
+                            <p class="text-gray-600">Led by Samuella Coffie, a multidisciplinary artist and chromotherapist with years of experience.</p>
+                        </div>
+                        
+                        <!-- Global Inspiration -->
+                        <div class="bg-white p-6 rounded-xl shadow-lg md:col-span-2">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4">
+                                    <i class="fas fa-globe text-green-600 text-xl"></i>
+                                </div>
+                                <h3 class="text-xl font-bold">Global Inspiration, Personal Touch</h3>
+                            </div>
+                            <p class="text-gray-600">While rooted in African creativity, our designs are influenced by global trends and aesthetics, making each piece timeless and distinctive.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Page -->
+    <section id="products" class="page-section">
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">Our Creations</h1>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">Explore our collections of handcrafted pieces that celebrate emotion, color, and individuality.</p>
+                
+                <!-- Product Filters -->
+                <div class="flex flex-wrap justify-center gap-4 mb-12">
+                    <button class="bg-purple-700 text-white px-4 py-2 rounded-lg filter-btn active-filter" data-filter="all">All Products</button>
+                    <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg filter-btn" data-filter="earrings">Earrings</button>
+                    <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg filter-btn" data-filter="fascinators">Fascinators</button>
+                    <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg filter-btn" data-filter="wall-art">Wall Art</button>
+                    <button class="bg-gray-200 text-gray-800 px-4 py-2 rounded-lg filter-btn" data-filter="brooches">Brooches</button>
+                </div>
+                
+                <!-- Products Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+                    <!-- Product 1 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform product-item" data-category="earrings">
+                        <div class="product-image bg-gradient-to-r from-purple-400 to-pink-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Sunset Dreams Earrings</h3>
+                            <p class="text-gray-600 mb-4">Vibrant crochet earrings that capture the warmth of an African sunset.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$45.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="1" data-name="Sunset Dreams Earrings" data-price="45.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 2 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform product-item" data-category="fascinators">
+                        <div class="product-image bg-gradient-to-r from-blue-400 to-teal-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Ocean Whisper Fascinator</h3>
+                            <p class="text-gray-600 mb-4">Elegant headpiece with calming blue tones inspired by the sea.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$68.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="2" data-name="Ocean Whisper Fascinator" data-price="68.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 3 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform product-item" data-category="wall-art">
+                        <div class="product-image bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Golden Harmony Wall Art</h3>
+                            <p class="text-gray-600 mb-4">Mixed media artwork that brings warmth and energy to any space.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$120.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="3" data-name="Golden Harmony Wall Art" data-price="120.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 4 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform product-item" data-category="earrings">
+                        <div class="product-image bg-gradient-to-r from-green-400 to-blue-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Forest Canopy Earrings</h3>
+                            <p class="text-gray-600 mb-4">Earthy tones that connect you with nature's tranquility.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$42.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="4" data-name="Forest Canopy Earrings" data-price="42.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 5 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform product-item" data-category="brooches">
+                        <div class="product-image bg-gradient-to-r from-red-400 to-pink-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Passion Bloom Brooch</h3>
+                            <p class="text-gray-600 mb-4">Bold statement piece that embodies confidence and passion.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$55.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="5" data-name="Passion Bloom Brooch" data-price="55.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Product 6 -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg transition-transform product-item" data-category="fascinators">
+                        <div class="product-image bg-gradient-to-r from-purple-500 to-indigo-500"></div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-2">Royal Elegance Fascinator</h3>
+                            <p class="text-gray-600 mb-4">Regal design with rich purple tones for special occasions.</p>
+                            <div class="flex justify-between items-center">
+                                <span class="text-purple-700 font-bold">$75.00</span>
+                                <button class="bg-purple-700 text-white px-4 py-2 rounded-lg hover:bg-purple-800 transition-colors add-to-cart" data-id="6" data-name="Royal Elegance Fascinator" data-price="75.00">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Page -->
+    <section id="journey" class="page-section">
+        <div class="py-20 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-16">Our Journey</h1>
+                
+                <div class="max-w-4xl mx-auto">
+                    <!-- 2011 -->
+                    <div class="flex flex-col md:flex-row mb-16">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center md:justify-start">
+                            <div class="bg-purple-700 text-white p-6 rounded-lg text-center w-48">
+                                <h3 class="text-2xl font-bold">2011</h3>
+                                <p class="mt-2">The Beginning</p>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-2xl font-bold mb-4 text-purple-700">The Spark Ignites</h4>
+                            <p class="text-gray-600">A creative journey begins as our founder learns to bead and soon after, to crochet—laying the foundation for a lifelong passion for handcrafted art.</p>
+                            <div class="mt-6 flex justify-center">
+                                <div class="w-32 h-32 rounded-full bg-purple-100 flex items-center justify-center">
+                                    <i class="fas fa-seedling text-purple-600 text-4xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2020 -->
+                    <div class="flex flex-col md:flex-row mb-16">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center md:justify-end order-2 md:order-1">
+                            <div class="bg-pink-600 text-white p-6 rounded-lg text-center w-48">
+                                <h3 class="text-2xl font-bold">2020</h3>
+                                <p class="mt-2">Brand Launch</p>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 bg-white p-8 rounded-xl shadow-lg order-1 md:order-2">
+                            <h4 class="text-2xl font-bold mb-4 text-pink-600">Akesi's Kreation is Born</h4>
+                            <p class="text-gray-600">The vision becomes reality. Akesi's Kreation is officially launched, combining traditional techniques with a bold, contemporary aesthetic to create wearable art with meaning.</p>
+                            <div class="mt-6 flex justify-center">
+                                <div class="w-32 h-32 rounded-full bg-pink-100 flex items-center justify-center">
+                                    <i class="fas fa-birthday-cake text-pink-600 text-4xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2023 -->
+                    <div class="flex flex-col md:flex-row mb-16">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center md:justify-start">
+                            <div class="bg-blue-600 text-white p-6 rounded-lg text-center w-48">
+                                <h3 class="text-2xl font-bold">2023</h3>
+                                <p class="mt-2">Evolution</p>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 bg-white p-8 rounded-xl shadow-lg">
+                            <h4 class="text-2xl font-bold mb-4 text-blue-600">Therapeutic Artistry Emerges</h4>
+                            <p class="text-gray-600">Grounded in chromotherapy, the brand evolves to embrace art as a tool for emotional well-being. Each creation becomes more than a statement piece—it becomes a source of joy, healing, and personal connection.</p>
+                            <div class="mt-6 flex justify-center">
+                                <div class="w-32 h-32 rounded-full bg-blue-100 flex items-center justify-center">
+                                    <i class="fas fa-heartbeat text-blue-600 text-4xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Today -->
+                    <div class="flex flex-col md:flex-row">
+                        <div class="md:w-1/3 mb-6 md:mb-0 flex justify-center md:justify-end order-2 md:order-1">
+                            <div class="bg-green-600 text-white p-6 rounded-lg text-center w-48">
+                                <h3 class="text-2xl font-bold">Today</h3>
+                                <p class="mt-2">Purposeful Growth</p>
+                            </div>
+                        </div>
+                        <div class="md:w-2/3 bg-white p-8 rounded-xl shadow-lg order-1 md:order-2">
+                            <h4 class="text-2xl font-bold mb-4 text-green-600">A Purposeful Creative Force</h4>
+                            <p class="text-gray-600">Akesi's Kreation continues to grow, uniting art, culture, and wellness to craft pieces that uplift, empower, and inspire.</p>
+                            <div class="mt-6 flex justify-center">
+                                <div class="w-32 h-32 rounded-full bg-green-100 flex items-center justify-center">
+                                    <i class="fas fa-rocket text-green-600 text-4xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mission & Vision -->
+                <div class="mt-20 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-bullseye text-purple-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4">Our Mission</h3>
+                        <p class="text-gray-600 text-center">To create handcrafted pieces that merge art, color, and therapy to inspire emotional balance, self-expression, and connection across cultures.</p>
+                    </div>
+                    
+                    <div class="bg-white p-8 rounded-xl shadow-lg">
+                        <div class="w-16 h-16 rounded-full bg-pink-100 flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-eye text-pink-600 text-2xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center mb-4">Our Vision</h3>
+                        <p class="text-gray-600 text-center">To be a globally recognized brand that transforms how people experience color and art as tools for healing, empowerment, and authentic self-expression.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Page -->
+    <section id="contact" class="page-section">
+        <div class="py-20 bg-white">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">Get In Touch</h1>
+                <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">We'd love to hear from you. Reach out with questions, custom order inquiries, or just to share your experience with our creations.</p>
+                
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <!-- Contact Info -->
+                        <div>
+                            <h2 class="text-3xl font-bold mb-8">Contact Information</h2>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope text-purple-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-1">Email</h3>
+                                        <p class="text-gray-600">akesiskreation@gmail.com</p>
+                                        <p class="text-gray-500 text-sm mt-1">We respond within 24 hours</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone text-pink-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-1">WhatsApp</h3>
+                                        <p class="text-gray-600">+233 26 505 2819</p>
+                                        <p class="text-gray-500 text-sm mt-1">Available for messages and calls</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-shipping-fast text-blue-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-1">Shipping</h3>
+                                        <p class="text-gray-600">We ship worldwide via DHL</p>
+                                        <p class="text-gray-500 text-sm mt-1">Fast and reliable delivery</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center mr-4 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-green-600 text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold mb-1">Based In</h3>
+                                        <p class="text-gray-600">Ghana</p>
+                                        <p class="text-gray-500 text-sm mt-1">Rooted in African creativity with global inspiration</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-10">
+                                <h3 class="text-2xl font-bold mb-6">Follow Our Journey</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="w-12 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center hover:bg-purple-800 transition-colors">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center hover:bg-purple-800 transition-colors">
+                                        <i class="fab fa-tiktok"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center hover:bg-purple-800 transition-colors">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#" class="w-12 h-12 rounded-full bg-purple-700 text-white flex items-center justify-center hover:bg-purple-800 transition-colors">
+                                        <i class="fab fa-pinterest-p"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Contact Form -->
+                        <div>
+                            <h2 class="text-3xl font-bold mb-8">Send Us a Message</h2>
+                            
+                            <form id="contact-form">
+                                <div class="mb-6">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Your Name</label>
+                                    <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Your Email</label>
+                                    <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">Subject</label>
+                                    <select id="subject" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" required>
+                                        <option value="" disabled selected>Select a subject</option>
+                                        <option value="general">General Inquiry</option>
+                                        <option value="custom">Custom Order</option>
+                                        <option value="wholesale">Wholesale Inquiry</option>
+                                        <option value="shipping">Shipping Question</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-6">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Your Message</label>
+                                    <textarea id="message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent" required></textarea>
+                                </div>
+                                
+                                <button type="submit" class="bg-purple-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-800 transition-colors w-full">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shopping Cart Page -->
+    <section id="cart" class="page-section">
+        <div class="py-20 bg-gray-50 min-h-screen">
+            <div class="container mx-auto px-4">
+                <h1 class="text-4xl md:text-5xl font-bold text-center mb-4">Your Shopping Cart</h1>
+                
+                <div id="cart-empty" class="text-center py-12 hidden">
+                    <i class="fas fa-shopping-cart text-gray-300 text-6xl mb-6"></i>
+                    <h2 class="text-2xl font-bold text-gray-500 mb-4">Your cart is empty</h2>
+                    <p class="text-gray-500 mb-8">Explore our collections and add some beautiful pieces to your cart.</p>
+                    <a href="#" class="bg-purple-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-800 transition-colors" onclick="showSection('products')">Continue Shopping</a>
+                </div>
+                
+                <div id="cart-with-items" class="hidden">
+                    <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-8">
+                        <div class="p-6 border-b border-gray-200">
+                            <h2 class="text-2xl font-bold">Order Summary</h2>
+                        </div>
+                        <div id="cart-items" class="p-6">
+                            <!-- Cart items will be dynamically added here -->
+                        </div>
+                        <div class="p-6 bg-gray-50 border-t border-gray-200">
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Subtotal</span>
+                                <span id="cart-subtotal" class="font-medium">$0.00</span>
+                            </div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-gray-600">Shipping</span>
+                                <span id="cart-shipping" class="font-medium">$15.00</span>
+                            </div>
+                            <div class="flex justify-between mb-4">
+                                <span class="text-gray-600">Tax</span>
+                                <span id="cart-tax" class="font-medium">$0.00</span>
+                            </div>
+                            <div class="flex justify-between text-lg font-bold pt-4 border-t border-gray-200">
+                                <span>Total</span>
+                                <span id="cart-total">$0.00</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col md:flex-row justify-between gap-4">
+                        <a href="#" class="bg-white border-2 border-purple-700 text-purple-700 px-6 py-3 rounded-lg font-medium hover:bg-purple-50 transition-colors text-center" onclick="showSection('products')">Continue Shopping</a>
+                        <button class="bg-purple-700 text-white px-6 py-3 rounded-lg font-medium hover:bg-purple-800 transition-colors">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Akesi's Kreation</h3>
+                    <p class="text-gray-400">Where Color Speaks, Art Heals. Handcrafted pieces that celebrate emotion, color, and individuality.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="showSection('home')">Home</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="showSection('about')">About</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="showSection('products')">Products</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors" onclick="showSection('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Customer Service</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Shipping Information</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Returns & Exchanges</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fab fa-pinterest-p text-xl"></i>
+                        </a>
+                    </div>
+                    <p class="text-gray-400">Email: akesiskreation@gmail.com</p>
+                    <p class="text-gray-400">WhatsApp: +233 26 505 2819</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Akesi's Kreation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation and Page Management
+        function showSection(sectionId) {
+            // Hide all sections
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('active-section');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active-section');
+            
+            // Update active nav link
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active-nav');
+            });
+            
+            // Set the clicked nav link as active
+            event.target.classList.add('active-nav');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Product filtering
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active filter button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active-filter');
+                    btn.classList.add('bg-gray-200', 'text-gray-800');
+                    btn.classList.remove('bg-purple-700', 'text-white');
+                });
+                
+                this.classList.add('active-filter');
+                this.classList.remove('bg-gray-200', 'text-gray-800');
+                this.classList.add('bg-purple-700', 'text-white');
+                
+                const filter = this.getAttribute('data-filter');
+                
+                // Show/hide products based on filter
+                document.querySelectorAll('.product-item').forEach(product => {
+                    if (filter === 'all' || product.getAttribute('data-category') === filter) {
+                        product.style.display = 'block';
+                    } else {
+                        product.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Shopping Cart Functionality
+        let cart = [];
+        
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cart-count').textContent = totalItems;
+            document.getElementById('mobile-cart-count').textContent = totalItems;
+        }
+        
+        function updateCartDisplay() {
+            const cartEmpty = document.getElementById('cart-empty');
+            const cartWithItems = document.getElementById('cart-with-items');
+            const cartItems = document.getElementById('cart-items');
+            
+            if (cart.length === 0) {
+                cartEmpty.classList.remove('hidden');
+                cartWithItems.classList.add('hidden');
+                return;
+            }
+            
+            cartEmpty.classList.add('hidden');
+            cartWithItems.classList.remove('hidden');
+            
+            // Clear current cart items
+            cartItems.innerHTML = '';
+            
+            let subtotal = 0;
+            
+            // Add each item to cart display
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                const cartItem = document.createElement('div');
+                cartItem.className = 'cart-item flex flex-col md:flex-row justify-between items-start md:items-center';
+                cartItem.innerHTML = `
+                    <div class="flex items-center mb-4 md:mb-0">
+                        <div class="w-16 h-16 rounded-lg bg-gradient-to-r from-purple-400 to-pink-500 mr-4"></div>
+                        <div>
+                            <h3 class="font-bold">${item.name}</h3>
+                            <p class="text-gray-600">$${item.price.toFixed(2)}</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center">
+                        <button class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center decrease-quantity" data-id="${item.id}">-</button>
+                        <span class="mx-4 font-medium">${item.quantity}</span>
+                        <button class="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center increase-quantity" data-id="${item.id}">+</button>
+                        <button class="ml-6 text-red-500 hover:text-red-700 remove-item" data-id="${item.id}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                `;
+                
+                cartItems.appendChild(cartItem);
+            });
+            
+            // Calculate totals
+            const shipping = 15.00;
+            const tax = subtotal * 0.08; // 8% tax
+            const total = subtotal + shipping + tax;
+            
+            // Update totals in UI
+            document.getElementById('cart-subtotal').textContent = `$${subtotal.toFixed(2)}`;
+            document.getElementById('cart-shipping').textContent = `$${shipping.toFixed(2)}`;
+            document.getElementById('cart-tax').textContent = `$${tax.toFixed(2)}`;
+            document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+            
+            // Add event listeners to cart buttons
+            document.querySelectorAll('.increase-quantity').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const item = cart.find(item => item.id === id);
+                    if (item) {
+                        item.quantity++;
+                        updateCartDisplay();
+                        updateCartCount();
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.decrease-quantity').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    const item = cart.find(item => item.id === id);
+                    if (item) {
+                        if (item.quantity > 1) {
+                            item.quantity--;
+                        } else {
+                            cart = cart.filter(item => item.id !== id);
+                        }
+                        updateCartDisplay();
+                        updateCartCount();
+                    }
+                });
+            });
+            
+            document.querySelectorAll('.remove-item').forEach(button => {
+                button.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    cart = cart.filter(item => item.id !== id);
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+        }
+        
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = parseInt(this.getAttribute('data-id'));
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                
+                // Check if item already in cart
+                const existingItem = cart.find(item => item.id === id);
+                
+                if (existingItem) {
+                    existingItem.quantity++;
+                } else {
+                    cart.push({
+                        id: id,
+                        name: name,
+                        price: price,
+                        quantity: 1
+                    });
+                }
+                
+                updateCartCount();
+                
+                // Show confirmation
+                const originalText = this.textContent;
+                this.textContent = 'Added to Cart!';
+                this.classList.remove('bg-purple-700');
+                this.classList.add('bg-green-600');
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.classList.remove('bg-green-600');
+                    this.classList.add('bg-purple-700');
+                }, 1500);
+            });
+        });
+        
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // In a real application, you would send the form data to a server here
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+        
+        // Initialize cart count
+        updateCartCount();
+    </script>
+</body>
+</html>
